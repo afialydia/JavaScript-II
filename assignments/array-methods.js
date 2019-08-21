@@ -58,8 +58,8 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 const fullNames = [];
-runners.forEach(function(runners){
-    return fullNames.push(`${runners.first_name} ${runners.last_name}`);
+runners.forEach(function(runner, index){
+    return fullNames.push(`${runner.first_name} ${runner.last_name}`);
 });
 console.log(fullNames);
 
@@ -106,4 +106,6 @@ console.log(emailBlast);
 
 
 // Problem 3
-
+const companyDirectory =  runners.map(function(runners){
+  return runners.company_name;}).sort();
+console.log(companyDirectory);

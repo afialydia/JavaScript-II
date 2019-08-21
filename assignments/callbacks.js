@@ -81,20 +81,25 @@ console.log(multiplyNums(4, 3, pint));
 // multiplyNums multiplies two numbers and passes the result to the callback.
 
 
-function contains(item, list, cb) {
-  return cb(item, list);
+function contains(item, list, cb){
+  let result;
+  list.includes(item) ? result = true : result = false; //turnary is if/else
+
+  cb(result);
 }
 
-const find = function(item, list){
-  if (list.contains(item)){
-    return true;
+const find = function(result){
+ console.log(result);
 }
+
+contains("Pencil", items, find);
+
 // const find = function(item, list){
 //   if item.includes()
 // } => {
 //   console.log(items.includes(item));
 // }; 
-console.log(contains("Pencil", items, find("Pencil", items)()));
+
 
 // contains checks if an item is present inside of the given array/list.
 // Pass true to the callback if it is, otherwise pass false.
@@ -106,4 +111,4 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-}}
+}
