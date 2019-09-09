@@ -40,55 +40,69 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 function getLength(arr, cb) {
-  cb(items.length);
+  return cb(items.length);
 }
-getLength(items, (cb) => {
-  console.log(cb);
-});
+console.log(getLength(items, function (length) {
+  return length;
+}));
+
 // getLength passes the length of the array into the callback.
 
 
-function last(items, cb) {
-return cb (items);
+function last(arr, cb) {
+  return cb(arr[arr.length-1]);
 }
-const lastNum = items[items - 1];
-console.log(lastNum);
+console.log(last(items,function(cat){
+  return cat;
+}));
+// last passes the last item of the array into the callback.
 
-  // last passes the last item of the array into the callback.
 
-
-console.log(last());
 
 function sumNums(x, y, tomato) {
-  return tomato (x, y)
+  return tomato(x, y)
 }
 const nums = function (x, y) {
   return x + y;
 };
-
 console.log(sumNums(1, 5, nums));
 
 // sumNums adds two numbers (x, y) and passes the result to the callback.
 
 
 function multiplyNums(x, y, parrot) {
-return parrot(x,y)}
-const pint = function (x,y){
-  return x*y;
+  return parrot(x, y)
+}
+const pint = function (x, y) {
+  return x * y;
 };
- console.log(multiplyNums(4,3,pint))
+console.log(multiplyNums(4, 3, pint));
 
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+// multiplyNums multiplies two numbers and passes the result to the callback.
 
 
-function contains(item, list, cb) {
-return souper(item, list)}
-const butter = function (item,list){
-  
+function contains(item, list, cb){
+  let result;
+  list.includes(item) ? result = true : result = false; //turnary is if/else
+
+  cb(result);
 }
 
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
+const find = function(result){
+ console.log(result);
+}
+
+contains("Pencil", items, find);
+
+// const find = function(item, list){
+//   if item.includes()
+// } => {
+//   console.log(items.includes(item));
+// }; 
+
+
+// contains checks if an item is present inside of the given array/list.
+// Pass true to the callback if it is, otherwise pass false.
 
 
 /* STRETCH PROBLEM */
